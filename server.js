@@ -19,10 +19,10 @@ function Server (doLogRequests) {
     res.json({up: true})
   })
 
-  app.post('/status/order', function (req, res, next) {
+  app.post('/order', function (req, res, next) {
     routes.order(req, res, next);
   });
-  app.post('/status/feedback', function (req, res, next) {
+  app.post('/feedback', function (req, res, next) {
     routes.feedback(req, res, next);
   });
 
