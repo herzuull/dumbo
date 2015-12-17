@@ -18,7 +18,7 @@ function Server (doLogRequests) {
   app.get('/status', function (req, res) {
     res.json({up: true})
   })
-  
+
   app.get('/vouchers', function(req, res) {
     routes.vouchers(req, res);
   })
@@ -30,8 +30,12 @@ function Server (doLogRequests) {
     routes.feedback(req, res, next);
   });
 
+  app.get('/vouchers/:category', function (req, res, next) {
+    routes.voucher(req, res, next);
+  });
+
   var server = http.createServer(app);
-  server.start = server.listen.bind(server, process.env.PORT || 3000);
+  server.start = server.listen.bind(server, process.env.PORT || 1337);
   server.stop = server.close.bind(server);
   return server;
 }
