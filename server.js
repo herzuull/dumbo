@@ -18,6 +18,10 @@ function Server (doLogRequests) {
   app.get('/status', function (req, res) {
     res.json({up: true})
   })
+  
+  app.get('/vouchers', function(req, res) {
+    routes.vouchers(req, res);
+  })
 
   app.post('/order', function (req, res, next) {
     routes.order(req, res, next);
