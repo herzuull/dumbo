@@ -30,9 +30,6 @@ function Server (doLogRequests) {
     routes.feedback(req, res, next);
   });
 
-  app.get('/vouchers/:category', function (req, res, next) {
-    routes.voucher(req, res, next);
-  });
 
   var server = http.createServer(app);
   server.start = server.listen.bind(server, process.env.PORT || 1337);
